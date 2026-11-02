@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Goals as a Student</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Welcome to My Personal Website
+        </h1>
+
+    </header>
+
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    HOME
+                </a>
+            </li>
+
+
+            <li class="dropdown">
+
+                <a href="#">
+                    ABOUT
+                </a>
+
+                <div class="dropdown-content">
+
+                    <a href="skills.html">
+                        Skills I'm Developing
+                    </a>
+
+                    <a href="goals.html">
+                        My Goals as a Student
+                    </a>
+
+                    <a href="funfacts.html">
+                        Fun Facts About Me
+                    </a>
+
+                </div>
+
+            </li>
+
+
+            <li>
+                <a href="gallery.html">
+                    GALLERY
+                </a>
+            </li>
+
+
+            <li>
+                <a href="contact.html">
+                    CONTACT
+                </a>
+            </li>
+
+
+            <li>
+
+                <a
+                    href="#"
+                    onclick="confirmLogout(); return false"
+                >
+                    LOG OUT
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <section id="section2">
+    </section>
+
+
+    <section id="drop">
+
+        <h2>
+            My Goals as a Student
+        </h2>
+
+
+        <p style="text-align:center">
+            Here are the aspirations I’m passionately pursuing!
+        </p>
+
+
+        <div class="goal-grid">
+
+
+            <div
+                class="goal-card"
+                onclick="toggleGoalDetails(1)"
+            >
+
+                <div
+                    class="goal-header"
+                    style="background:#6a1b9a"
+                >
+
+                    <strong>
+                        Short-Term Goals
+                    </strong>
+
+                </div>
+
+
+                <p>
+                    <strong>
+                        Goals I Want to Achieve Soon.
+                    </strong>
+                </p>
+
+
+                <div
+                    class="goal-details"
+                    id="goal1-details"
+                >
+
+                    <p>
+                        <br>•Maintain good grades in all my subjects.</br>
+                        <br>•Complete school activities and projects on time.</br>
+                        <br>•Improve my time management and study habits.</br>
+                        <br>•Participate actively in class.</br>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="goal-card"
+                onclick="toggleGoalDetails(2)"
+            >
+
+                <div
+                    class="goal-header"
+                    style="background:#0288d1"
+                >
+
+                    <strong>
+                        Long-Term Goals
+                    </strong>
+
+                </div>
+
+
+                <p>
+                    Goals for My Future.
+                </p>
+
+
+                <div
+                    class="goal-details"
+                    id="goal2-details"
+                >
+
+                    <p>
+                        <br>•Graduate from college with a degree.</br>
+                        <br>•Find a stable and successful job.</br>
+                        <br>•Become financially independent.</br>
+                        <br>•Give my family a better life.</br>
+
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="goal-card"
+                onclick="toggleGoalDetails(3)"
+            >
+
+                <div
+                    class="goal-header"
+                    style="background:#ffb300"
+                >
+
+                    <strong>
+                        Personal Development
+                    </strong>
+
+                </div>
+
+
+                <p>
+                    Goals to Improve Myself.
+                
+                </p>
+
+
+                <div
+                    class="goal-details"
+                    id="goal3-details"
+                >
+
+                    <p>
+                        <br>•Become more confident and responsible.</br>
+                        <br>•Improve my communication skills.</br>
+                        <br>•Learn from my mistakes and experiences.</br>
+                        <br>•Develop self-discipline and a positive mindset.</br>
+
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="goal-card"
+                onclick="toggleGoalDetails(4)"
+            >
+
+                <div
+                    class="goal-header"
+                    style="background:#e53935"
+                >
+
+                    <strong>
+                        Career Goals
+                    </strong>
+
+                </div>
+
+
+                <p>
+                    Goals for My Future Profession.
+                </p>
+
+
+                <div
+                    class="goal-details"
+                    id="goal4-details"
+                >
+
+                    <p>
+                        <br>•Become a successful IT professional.</br>
+                        <br>•Improve my programming and technical skills.</br>
+                        <br>•Gain experience in the field of Information Technology.</br>
+                        <br>•Build a career that I can be proud of.</br>
+
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            &copy; 2026 Personal Website. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <div class="footer-divider">
+    </div>
+
+
+    <script src="script.js">
+    </script>
+
+<script src="petals.js" defer></script>
+</body>
+
+</html>
+

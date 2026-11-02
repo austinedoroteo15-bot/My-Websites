@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Personal Website</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+
+            <li class="dropdown">
+                <a href="#">ABOUT</a>
+                <div class="dropdown-content">
+                    <a href="skills.html">Skills I'm Developing</a>
+                    <a href="goals.html">My Goals as a Student</a>
+                    <a href="funfacts.html">Fun Facts About Me</a>
+                </div>
+            </li>
+
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="#" onclick="confirmLogout(); return false;">LOG OUT</a></li>
+        </ul>
+    </nav>
+
+    <section id="section2"></section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p>Check out some of the images from my recent photography:</p>
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+                <img src="1.jpeg" alt="My honest reaction" class="thumbnail" loading="lazy">
+                <p class="image-description">My Honest Reaction</p>
+            </div>
+
+            <div class="gallery-item wide">
+                <img src="2.jpg" alt="Graduation class photo" class="thumbnail" loading="lazy">
+                <p class="image-description">Graduate na kami</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="3.jpg" alt="Photo of my BFF outdoors" class="thumbnail" loading="lazy">
+                <p class="image-description">Picture ni BFF</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="4.jpg" alt="Group picture" class="thumbnail" loading="lazy">
+                <p class="image-description">Group Picture</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="5.jpg" alt="Photo of my BFF in the city" class="thumbnail" loading="lazy">
+                <p class="image-description">Picture ni BFF 2</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="6.jpg" alt="Birthday cake with a candle" class="thumbnail" loading="lazy">
+                <p class="image-description">Happy Birthday Alfred</p>
+            </div>
+
+            <!-- Add more gallery-item blocks as needed -->
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <span class="close" role="button" tabindex="0" aria-label="Close" onclick="closeLightbox()">&times;</span>
+            <img class="lightbox-content" id="lightboxImage" src="" alt="Enlarged gallery image">
+            <a class="prev" role="button" tabindex="0" aria-label="Previous image" onclick="changeImage(-1)">&#10094;</a>
+            <a class="next" role="button" tabindex="0" aria-label="Next image" onclick="changeImage(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Biel Austine Doroteo. All rights reserved.</p>
+    </footer>
+
+    <div class="footer-divider"></div>
+
+    <script src="script.js"></script>
+    <script src="petals.js" defer></script>
+</body>
+</html>

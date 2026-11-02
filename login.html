@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Login Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login_style.css">
+</head>
+<body>
+
+    <main class="form-container">
+        <h2 id="formTitle">Login Information</h2>
+
+        <form id="authForm" novalidate>
+            <label class="field" for="username">Username</label>
+            <input type="text" id="username" autocomplete="username">
+
+            <label class="field" for="password">Password</label>
+            <input type="password" id="password" autocomplete="current-password">
+
+            <div id="confirmWrap" hidden>
+                <label class="field" for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" autocomplete="new-password">
+                <p id="passwordMatchMessage" aria-live="polite"></p>
+            </div>
+
+            <label id="showPasswordContainer">
+                <input type="checkbox" id="showPassword"> Show Password
+            </label>
+
+            <p id="errorMessage" role="alert"></p>
+            <button type="submit" id="submitBtn">LOGIN</button>
+        </form>
+
+        <p class="toggle-text">
+            <span id="toggleText">Don't have an account?</span>
+            <a href="#" id="toggleLink">Sign Up</a>
+        </p>
+    </main>
+
+    <script>
+        var isSignUp = false;
+        var $ = function (id) { return document.getElementById(id); };
+
+        function getUsers() {
+            try { return JSON.parse(localStorage.getItem("users")) || {}; } catch (e) { return {}; }
+        }
+
+        function setMode(signUp) {
+            isSignUp = signUp;
+            $("formTitle").textContent = signUp ? "Create Account" : "Login Information";
+            $("submitBtn").textContent = signUp ? "SIGN UP" : "LOGIN";
+            $("toggleText").textContent = signUp ? "Already have an account?" : "Don't have an account?";
+            $("toggleLink").textContent = signUp ? "Login" : "Sign Up";
+            $("confirmWrap").hidden = !signUp;
+            $("password").autocomplete = signUp ? "new-password" : "current-password";
+            $("errorMessage").textContent = "";
+            $("passwordMatchMessage").textContent = "";
+        }
+
+        $("toggleLink").addEventListener("click", function (e) {
+            e.preventDefault();
+            setMode(!isSignUp);
+        });
+
+        $("showPassword").addEventListener("change", function (e) {
+            var t = e.target.checked ? "text" : "password";
+            $("password").type = t;
+            $("confirmPassword").type = t;
+        });
+
+        function checkMatch() {
+            var m = $("passwordMatchMessage");
+            if (!isSignUp || !$("confirmPassword").value) { m.textContent = ""; return; }
+            var same = $("password").value === $("confirmPassword").value;
+            m.textContent = same ? "Passwords match" : "Passwords do not match";
+            m.className = same ? "ok" : "";
+        }
+        $("password").addEventListener("input", checkMatch);
+        $("confirmPassword").addEventListener("input", checkMatch);
+
+        $("authForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            var u = $("username").value.trim();
+            var p = $("password").value;
+            var err = $("errorMessage");
+            var users = getUsers();
+            err.textContent = "";
+
+            if (!u || !p) { err.textContent = "Please enter your username and password."; return; }
+
+            if (isSignUp) {
+                if (p !== $("confirmPassword").value) { err.textContent = "Passwords do not match."; return; }
+                if (users[u]) { err.textContent = "That username is already taken."; return; }
+                users[u] = p;
+                localStorage.setItem("users", JSON.stringify(users));
+                setMode(false);
+                $("username").value = u;
+                $("password").value = "";
+                err.textContent = "Account created. You can log in now.";
+            } else {
+                if (users[u] !== p) { err.textContent = "Incorrect username or password."; return; }
+                localStorage.setItem("isLoggedIn", "true");
+                location.href = "index.html";
+            }
+        });
+    </script>
+    <script src="petals.js" defer></script>
+</body>
+</html>
